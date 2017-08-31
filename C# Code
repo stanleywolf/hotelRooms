@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _19.HotelRoom
+{
+    class hotelRoom
+    {
+        static void Main(string[] args)
+        {
+            string month = Console.ReadLine();
+            int numNight = int.Parse(Console.ReadLine());
+
+            if (month == "May" || month == "October")
+            {
+                var priceStudio = numNight * 50;
+                var priceApart = numNight * 65;
+                if (numNight > 7 && numNight < 15)
+                {
+                    var dicPrStu = 0.05 * priceStudio;
+                    Console.WriteLine("Apartment: {0:f2} lv.", priceApart);
+                    Console.WriteLine("Studio: {0:f2} lv.", priceStudio - dicPrStu);
+                }
+                else if (numNight > 14)
+                {
+                    var discPerStu = 0.30 * priceStudio;
+                    var disPerAp = 0.10 * priceApart;
+                    Console.WriteLine("Apartment: {0:f2} lv.", priceApart-disPerAp);
+                    Console.WriteLine("Studio: {0:f2} lv.", priceStudio - discPerStu);
+                }
+                else
+                {
+                    Console.WriteLine("Apartment: {0:f2} lv.", priceApart);
+                    Console.WriteLine("Studio: {0:f2} lv.", priceStudio);
+                }
+            }
+            else if (month == "June" || month == "September")
+            {
+                var priceStudio = numNight * 75.20;
+                var priceApart = numNight * 68.70;
+                
+                if (numNight > 14)
+                {
+                    var discPerStu = 0.20 * priceStudio;
+                    var disPerAp = 0.10 * priceApart;
+                    Console.WriteLine("Apartment: {0:f2} lv.", priceApart - disPerAp);
+                    Console.WriteLine("Studio: {0:f2} lv.", priceStudio - discPerStu);
+                }
+                else
+                {
+                    Console.WriteLine("Apartment: {0:f2} lv.", priceApart);
+                    Console.WriteLine("Studio: {0:f2} lv.", priceStudio);
+                }
+            }
+            else if (month == "July" || month == "August")
+            {
+                var priceStudio = numNight * 76;
+                var priceApart = numNight * 77;
+
+                if (numNight > 14)
+                {
+                    var disPerAp = 0.10 * priceApart;
+                    Console.WriteLine("Apartment: {0:f2} lv.", priceApart - disPerAp);
+                    Console.WriteLine("Studio: {0:f2} lv.", priceStudio);
+                }
+                else
+                {
+                    Console.WriteLine("Apartment: {0:f2} lv.", priceApart);
+                    Console.WriteLine("Studio: {0:f2} lv.", priceStudio);
+                }
+            }
+        }
+    }
+}
